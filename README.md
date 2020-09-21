@@ -1,0 +1,1 @@
+to execute plugin command, go to test-plugin folder and run ./gradlew hello. This will run the GreetingPlugin found in greeting-plugin, as long as it is found in the appropriate repository. If not, the plugin is also in this project, so it can be uploaded to a repository (that code is also found in the plugin files).

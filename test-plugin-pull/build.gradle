@@ -1,0 +1,28 @@
+plugins {
+//    id 'greeting-plugin'
+    id 'com.majik.greeting-plugin' version '0.0.1'
+}
+
+dependencies {
+//    compile 'com.majik'
+}
+
+repositories {
+    mavenCentral()
+//    maven {
+//        url = 'http://localhost:8081/repository/testrepo/'
+//        credentials {
+//            username = 'test'
+//            password = 'test'
+//        }
+//    }
+
+}
+
+//apply plugin: GreetingPlugin
+
+greeting {
+    message = 'Oink'
+    greeter = 'Poogie'
+}
+

@@ -1,0 +1,87 @@
+//package com.majik.greetingPlugin
+
+plugins {
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+    id 'java'
+    id 'groovy'
+}
+
+group = 'com.majik'
+version = '0.0.1'
+sourceCompatibility = '1.8'
+
+//class GreetingPluginExtension {
+//    String message = 'Hello, dere!'
+//    String greeter = 'Puppetyr'
+//}
+//
+//class GreetingPlugin implements Plugin<Project> {
+//    void apply(Project project) {
+//
+//        // Add the 'greeting' extension object
+//        def extension = project.extensions.create('greeting', GreetingPluginExtension)
+//
+//        // Add a task that prints the string from the extension object
+//        project.task('hello') {
+//            doLast {
+//                println "${extension.message} from ${extension.greeter}"
+//            }
+//        }
+//    }
+//}
+
+repositories {
+    mavenCentral()
+//    jcenter()
+}
+
+dependencies {
+//    compile gradleApi()
+//    implementation 'org.springframework.boot:spring-boot-starter-web'
+//    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+//        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+//    }
+}
+
+gradlePlugin {
+    plugins {
+        simplePlugin {
+            id = 'com.majik.greeting-plugin'
+            implementationClass = 'com.majik.GreetingPlugin'
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+//            groupId = 'com.majik.greeting-plugin'
+//            artifactId = 'GreetingPlugin'
+//            version = '0.0.1'
+
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = 'http://localhost:8081/repository/testrepo/'
+            credentials {
+                username = 'test'
+                password = 'test'
+            }
+        }
+    }
+}
+
+//apply plugin: com.majik.GreetingPlugin
+//apply plugin: GreetingPlugin
+//apply plugin: greetingPlugin
+//apply plugin: com.majik.greetingPlugin
+
+//greeting {
+//    message = 'Hi'
+//    greeter = 'Gradle'
+//}
+
+//apply plugin: greetingPlug
